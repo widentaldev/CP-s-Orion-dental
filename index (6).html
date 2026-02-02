@@ -1,0 +1,345 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>CP's Orion Dental | Luxury Dental Clinic Thika</title>
+<meta name="description" content="CP's Orion Dental - Luxury dental care in Thika. Professional, trusted dental services including teeth cleaning, braces, fillings, gum care, and more. Book your appointment today.">
+<meta name="keywords" content="CP's Orion Dental, Thika dental clinic, luxury dental clinic, teeth cleaning, dental services, dental care, dental clinic Thika">
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@700&family=Roboto:wght@400;700&display=swap" rel="stylesheet">
+<style>
+/* ===== GENERAL ===== */
+body {
+  margin:0;
+  font-family:'Roboto', sans-serif;
+  background:#f3f3f3;
+  color:#222;
+  line-height:1.6;
+  scroll-behavior:smooth;
+}
+a { text-decoration:none; color:inherit; }
+h2 { font-family:'Playfair Display', serif; text-align:center; color:#0a3c6d; margin-bottom:40px; font-size:32px; }
+
+/* ===== HERO ===== */
+header {
+  position:relative;
+  height:100vh;
+  color:#fff;
+  overflow:hidden;
+}
+header img {
+  position:absolute;
+  top:0;
+  left:0;
+  width:100%;
+  height:100%;
+  object-fit:cover;
+  filter:brightness(60%);
+  z-index:-1;
+}
+header::after {
+  content:"";
+  position:absolute;
+  top:0;
+  left:0;
+  width:100%;
+  height:100%;
+  background: rgba(0,0,0,0.25);
+  z-index:0;
+}
+.hero-text {
+  position:absolute;
+  top:50%;
+  left:50%;
+  transform:translate(-50%,-50%);
+  text-align:center;
+  z-index:1;
+}
+.hero-text h1 {
+  font-size:50px;
+  margin-bottom:15px;
+  letter-spacing:2px;
+  background: linear-gradient(90deg, #caa24d, #fff, #caa24d);
+  -webkit-background-clip:text;
+  color:transparent;
+  animation: shimmer 3s infinite linear;
+}
+.hero-text p {
+  font-size:22px;
+  opacity:0.9;
+  margin-bottom:25px;
+}
+.cta-group a {
+  display:inline-block;
+  margin:10px 6px;
+  padding:16px 32px;
+  border-radius:30px;
+  font-weight:bold;
+  font-size:16px;
+  transition: all 0.3s ease;
+}
+.call { background:#caa24d; color:#000; }
+.whatsapp { background:#25d366; color:#fff; }
+.call:hover, .whatsapp:hover {
+  transform: scale(1.05);
+  box-shadow: 0 0 15px #caa24d, 0 0 30px #caa24d;
+  filter: brightness(1.15);
+}
+
+/* ===== SECTIONS ===== */
+section {
+  padding:70px 20px;
+  max-width:1100px;
+  margin:auto;
+  opacity:0;
+  transform: translateY(50px);
+  transition: all 0.8s ease-out;
+  background:#fffdf6;
+  border-radius:20px;
+  margin-bottom:40px;
+  box-shadow:0 10px 25px rgba(0,0,0,0.08);
+}
+section.visible { opacity:1; transform: translateY(0); }
+
+/* ===== GRID / CARDS ===== */
+.grid { display:grid; grid-template-columns:repeat(auto-fit, minmax(260px,1fr)); gap:25px; }
+.card {
+  background:#fff9f0;
+  padding:30px;
+  border-radius:15px;
+  box-shadow:0 12px 35px rgba(0,0,0,0.12);
+  transition: all 0.4s ease;
+  text-align:center;
+}
+.card:hover {
+  transform: translateY(-10px) scale(1.03);
+  box-shadow:0 18px 45px rgba(0,0,0,0.2);
+  border:2px solid #caa24d;
+}
+.card ul { padding-left:18px; list-style:none; }
+.card li::before { content:'⭐'; margin-right:6px; color:#caa24d; }
+
+/* ===== GALLERY ===== */
+.gallery-container { display:flex; gap:20px; justify-content:center; flex-wrap:wrap; margin-bottom:40px; }
+.lightbox-thumb {
+  width:200px;
+  border-radius:15px;
+  cursor:pointer;
+  transition: transform 0.3s, box-shadow 0.3s, filter 0.3s;
+}
+.lightbox-thumb:hover {
+  transform: scale(1.08);
+  box-shadow:0 20px 45px rgba(0,0,0,0.35);
+  filter: brightness(1.1);
+}
+#lightbox {
+  display:none;
+  position:fixed;
+  top:0; left:0;
+  width:100%; height:100%;
+  background:rgba(0,0,0,0.9);
+  justify-content:center; align-items:center;
+  z-index:9999;
+}
+#lightbox img {
+  max-width:90%; max-height:90%;
+  border-radius:15px;
+}
+
+/* ===== CONTACT / FORM ===== */
+.contact-box { background:#fff; padding:40px; border-radius:15px; box-shadow:0 14px 45px rgba(0,0,0,0.12); max-width:600px; margin:auto; }
+input, textarea, button { width:100%; padding:16px; margin-top:14px; border-radius:8px; border:1px solid #ccc; font-size:15px; }
+button { background:#0a3c6d; color:#fff; border:none; font-weight:bold; cursor:pointer; transition: all 0.3s ease; }
+button:hover { transform: scale(1.05); box-shadow:0 8px 25px rgba(0,0,0,0.2); }
+
+/* ===== FOOTER ===== */
+footer { background:#0a3c6d; color:#fff; text-align:center; padding:25px; font-size:14px; }
+
+/* ===== STICKY CONTACT BAR ===== */
+.sticky-bar { position:fixed; bottom:0; width:100%; display:flex; z-index:1000; }
+.sticky-bar a { flex:1; padding:18px; text-align:center; font-weight:bold; font-size:16px; transition: all 0.3s ease; }
+.sticky-call { background:#caa24d; color:#000; }
+.sticky-whatsapp { background:#25d366; }
+.sticky-bar a:hover { transform: scale(1.05); box-shadow:0 6px 20px rgba(0,0,0,0.2); }
+
+/* ===== FLOATING MENU ===== */
+.floating-menu { position:fixed; right:10px; top:50%; transform:translateY(-50%); display:flex; flex-direction:column; gap:12px; z-index:10000; }
+.floating-menu a { position: relative; background:#0a3c6d; color:#fff; padding:10px 16px; border-radius:10px; font-weight:bold; text-align:center; transition:all 0.3s; }
+.floating-menu a:hover { background:#caa24d; color:#000; transform:scale(1.1); box-shadow:0 8px 28px rgba(202,162,77,0.6); }
+
+/* ===== BACK-TO-TOP ===== */
+#backTop { position:fixed; bottom:80px; right:15px; background:#caa24d; color:#000; padding:12px 16px; border-radius:50%; font-size:18px; cursor:pointer; display:none; z-index:10000; transition:all 0.3s; }
+#backTop:hover { transform:scale(1.1); box-shadow:0 6px 20px rgba(0,0,0,0.2); }
+
+/* ===== ANIMATIONS ===== */
+@keyframes shimmer { 0% { background-position: -200px; } 50% { background-position: 200px; } 100% { background-position: -200px; } }
+@media(max-width:768px){ .floating-menu { right:5px; gap:8px; } .floating-menu a { padding:8px 12px; font-size:14px; } }
+
+</style>
+</head>
+<body>
+
+<!-- HERO -->
+<header>
+<img src="https://images.unsplash.com/photo-1588776814546-2ec2d7d6a10e?auto=format&fit=crop&w=1600&q=80" alt="Luxury Dental Clinic">
+<div class="hero-text">
+<h1>CP’S ORION DENTAL</h1>
+<p>Luxury Dental Care • Perfect Smile Guaranteed</p>
+<div class="cta-group">
+<a href="tel:0727407887" class="call">Call Now</a>
+<a href="https://wa.me/254727407887" class="whatsapp">WhatsApp Us</a>
+</div>
+</div>
+</header>
+
+<!-- BUSINESS HOURS -->
+<section id="hours">
+<h2>Business Hours</h2>
+<p style="text-align:center; font-size:18px;">🕗 Monday – Sunday: 8:00 AM – 6:00 PM</p>
+</section>
+
+<!-- SERVICES -->
+<section id="services">
+<h2>Our Services</h2>
+<div class="grid card">
+<ul>
+<li>Consultation & X-Ray</li>
+<li>Scaling / Teeth Cleaning</li>
+<li>Extractions & Fillings</li>
+<li>Root Canal Treatment</li>
+<li>Teeth Whitening</li>
+<li>Replacement of Missing Teeth</li>
+<li>Teeth Crowns & Bridges</li>
+<li>Fabrication & Repairs</li>
+<li>Dental Braces</li>
+<li>Crowns (Silver, Gold, Coloured)</li>
+<li>Tooth Gems (Cosmetic)</li>
+</ul>
+</div>
+</section>
+
+<!-- GALLERY -->
+<section id="gallery">
+<h2>Our Clinic</h2>
+<div class="gallery-container">
+<img src="/images/IMG-20260202-WA0003(1).jpg" alt="Clinic 1" class="lightbox-thumb">
+<img src="/images/IMG-20260202-WA0005.jpg" alt="Clinic 2" class="lightbox-thumb">
+<img src="/images/IMG-20260202-WA0003(1).jpg" alt="Clinic 3" class="lightbox-thumb">
+</div>
+</section>
+
+<!-- TEETH DISEASE -->
+<section id="diseases">
+<h2>Common Teeth Issues & Prevention</h2>
+<div class="grid">
+<div class="card">
+<img src="/images/IMG-20260202-WA0008.jpg" style="width:150px; margin-bottom:12px;" alt="Gum Disease">
+<h3>Gum Disease</h3>
+<p>Inflammation of gums. Maintain oral hygiene to prevent swelling and bleeding.</p>
+</div>
+<div class="card">
+<img src="/images/IMG-20260202-WA0009.jpg" style="width:150px; margin-bottom:12px;" alt="Cavities">
+<h3>Cavities</h3>
+<p>Decayed teeth caused by bacteria. Regular brushing & fluoride prevent them.</p>
+</div>
+<div class="card">
+<img src="/images/IMG-20260202-WA0010.jpg" style="width:150px; margin-bottom:12px;" alt="Plaque Build-up">
+<h3>Plaque Build-up</h3>
+<p>Sticky film on teeth. Daily brushing and flossing removes plaque.</p>
+</div>
+<div class="card">
+<img src="/images/IMG-20260202-WA0011.jpg" style="width:150px; margin-bottom:12px;" alt="Tooth Sensitivity">
+<h3>Tooth Sensitivity</h3>
+<p>Causes discomfort. Avoid acidic foods and maintain strong enamel.</p>
+</div>
+</div>
+</section>
+
+<!-- TESTIMONIALS -->
+<section id="reviews">
+<h2>What Our Patients Say</h2>
+<div class="grid">
+<div class="card">“The clinic is very friendly. Doctor Denis is professional, you don't feel pain at all.” — Ndemo Safari ⭐⭐⭐⭐⭐</div>
+<div class="card">“Top-notch service and very welcoming reception.” — Nick Nyuon ⭐⭐⭐⭐⭐</div>
+<div class="card">“Dedicated medics, good environment, professional service.” — Vincent Barasa ⭐⭐⭐⭐⭐</div>
+</div>
+</section>
+
+<!-- APPOINTMENT FORM -->
+<section id="appointment">
+<h2>Book an Appointment</h2>
+<div class="contact-box">
+<form id="appointmentForm" action="https://formspree.io/f/yourformid" method="POST">
+<input type="text" name="name" placeholder="Full Name" required>
+<input type="tel" name="phone" placeholder="Phone Number" required>
+<input type="text" name="datetime" placeholder="Preferred Date & Time">
+<textarea name="message" rows="4" placeholder="Message"></textarea>
+<button type="submit">Submit Request</button>
+</form>
+<p id="thankyou" style="display:none; color:green; text-align:center; margin-top:10px;">Thank you! We will contact you shortly.</p>
+</div>
+</section>
+
+<!-- VISIT US -->
+<section id="visit">
+<h2>Visit Us</h2>
+<p style="text-align:center;">📍 Mathai MATCO Supermarket, 4 Uhuru St, Thika<br>📞 0727 407 887</p>
+<div style="display:flex; justify-content:center; margin-top:20px;">
+<iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3989.511481840744!2d37.07106927528993!3d-1.0391489996309117!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x182f2d3d63a0aee9%3A0x9cb06e04629c173c!2sCP%27S%20ORION%20DENTAL!5e0!3m2!1sen!2ske!4v1675478115234!5m2!1sen!2ske" width="100%" height="400" style="border:0; border-radius:15px;" allowfullscreen="" loading="lazy"></iframe>
+</div>
+</section>
+
+<!-- FOOTER -->
+<footer>© 2026 CP’S ORION DENTAL — All Rights Reserved</footer>
+
+<!-- STICKY CONTACT -->
+<div class="sticky-bar">
+<a href="tel:0727407887" class="sticky-call">Call</a>
+<a href="https://wa.me/254727407887" class="sticky-whatsapp">WhatsApp</a>
+</div>
+
+<!-- FLOATING MENU -->
+<div class="floating-menu">
+<a href="#services" title="Services">🦷 Services</a>
+<a href="#gallery" title="Gallery">🏥 Gallery</a>
+<a href="#diseases" title="Teeth Issues">⚠️ Issues</a>
+<a href="#appointment" title="Book Appointment">📅 Appointment</a>
+<a href="#visit" title="Visit Us">📍 Visit Us</a>
+</div>
+
+<!-- BACK TO TOP -->
+<div id="backTop" title="Back to Top">⬆️</div>
+
+<script>
+// ===== FADE IN SECTIONS =====
+const sections = document.querySelectorAll('section');
+const observer = new IntersectionObserver(entries => {
+entries.forEach(entry => { if(entry.isIntersecting){ entry.target.classList.add('visible'); } });
+}, { threshold: 0.2 });
+sections.forEach(sec => observer.observe(sec));
+
+// ===== LIGHTBOX =====
+const lightbox = document.getElementById('lightbox');
+const lightboxImg = document.getElementById('lightbox-img');
+document.querySelectorAll('.lightbox-thumb').forEach(img => { img.addEventListener('click', ()=>{ lightbox.style.display='flex'; lightboxImg.src=img.src; }); });
+lightbox.addEventListener('click', ()=>{ lightbox.style.display='none'; });
+
+// ===== BACK TO TOP =====
+const backTop = document.getElementById('backTop');
+window.addEventListener('scroll', ()=>{ backTop.style.display = window.scrollY>300?'block':'none'; });
+backTop.addEventListener('click', ()=>{ window.scrollTo({top:0, behavior:'smooth'}); });
+
+// ===== FORMSPREE =====
+const form = document.getElementById('appointmentForm');
+const thankYou = document.getElementById('thankyou');
+form.addEventListener('submit', async (e)=>{ 
+e.preventDefault(); 
+const formData = new FormData(form); 
+const response = await fetch(form.action,{ method: form.method, body: formData, headers:{'Accept':'application/json'} });
+if(response.ok){ thankYou.style.display='block'; form.reset(); } });
+
+// ===== ANIMATION SHIMMER =====
+</script>
+
+</body>
+</html>
